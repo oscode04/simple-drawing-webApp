@@ -5,28 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DrawingWebApp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
     <div class="field">
+        <div class="tools mb-lg-3" id="tools">
+            <button onclick="undo_last()" type="button" class="button  d-none d-sm-block mr-lg-3">Undo</button>
+            <button onclick="clear_canvas()" type="button" class="button  d-none d-sm-block mr-lg-3">Clear</button>
+            <button onclick="save()" type="button" class="button  d-none d-sm-block mr-lg-3">Save</button>
+
+            <div onclick="change_color(this)" class="color-field ml-lg-3" style="background: red;"></div>
+            <div onclick="change_color(this)" class="color-field ml-lg-3 mx-2" style="background: blue;"></div>
+            <div onclick="change_color(this)" class="color-field" style="background: green;"></div>
+            <div onclick="change_color(this)" class="color-field d-none d-sm-block ml-lg-3" style="background: white;"></div>
+
+            <input oninput="draw_color = this.value" type="color" class="color-picker ml-lg-3 mr-lg-1 ml-3 mb-2">
+            <input type="range" min="1" max="100" class="pen-range ml-lg-2 ml-3" oninput="draw_width = this.value">
+        </div>
         <canvas id="canvas"></canvas>
         <div class="tools" id="tools">
-            <button onclick="undo_last()" type="button" class="button">Undo</button>
-            <button onclick="clear_canvas()" type="button" class="button">Clear</button>
-            <button onclick="save()" type="button" class="button">Save</button>
-
-            <div onclick="change_color(this)" class="color-field" style="background: red;"></div>
-            <div onclick="change_color(this)" class="color-field" style="background: blue;"></div>
-            <div onclick="change_color(this)" class="color-field" style="background: green;"></div>
-            <div onclick="change_color(this)" class="color-field" style="background: yellow;"></div>
-
-            <input oninput="draw_color = this.value" type="color" class="color-picker">
-            <input type="range" min="1" max="100" class="pen-range" oninput="draw_width = this.value">
+            <button onclick="undo_last()" type="button" class="button mt-3 d-sm-block d-md-none">Undo</button>
+            <button onclick="clear_canvas()" type="button" class="button mr-3 ml-3 mt-3 d-sm-block d-md-none">Clear</button>
+            <button onclick="save()" type="button" class="button mt-3 d-sm-block d-md-none">Save</button>
         </div>
     </div>
 
 
     <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
